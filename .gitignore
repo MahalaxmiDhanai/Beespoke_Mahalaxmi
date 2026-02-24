@@ -1,0 +1,42 @@
+# === Flutter / Dart generated ===
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+doc/api/
+
+# Build outputs
+/build/
+
+# iOS specific
+**/ios/Flutter/.last_build_id
+
+# === Android generated/cache ===
+**/android/.gradle/
+**/android/captures/
+/android/local.properties
+android/app/debug/
+android/app/profile/
+android/app/release/
+
+# === IntelliJ / VS Code ===
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# === macOS ===
+.DS_Store
+.DS_Store?
+._*
+
+# === Analysis/temp helper files ===
+analyze_out.txt
+analyze2.txt
+dart_analyze.log
+test_out.txt
+test_json.txt
+test_exact.txt
+screen.png
