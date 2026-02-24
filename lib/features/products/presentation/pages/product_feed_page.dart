@@ -116,7 +116,8 @@ class _ProductFeedPageState extends ConsumerState<ProductFeedPage> {
   }
 
   void _openWebView(Product product) {
-    final url = 'https://fakestoreapi.com/products/${product.id}';
+    final encodedTitle = Uri.encodeComponent(product.title);
+    final url = 'https://www.google.com/search?q=${encodedTitle}&tbm=shop';
     Navigator.push(
       context,
       MaterialPageRoute<void>(
