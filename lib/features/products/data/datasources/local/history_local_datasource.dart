@@ -20,14 +20,14 @@ abstract interface class HistoryLocalDatasource {
 
 /// Hive-backed implementation of [HistoryLocalDatasource].
 ///
-/// Stores each entry as a [Map<String, dynamic>] to avoid custom type adapters.
+/// Uses [Box<dynamic>] to avoid Hive's AOT LinkedHashMap cast issues on Android.
 class HistoryLocalDatasourceImpl implements HistoryLocalDatasource {
   HistoryLocalDatasourceImpl(this._box);
 
-  final Box<Map<String, dynamic>> _box;
+  final Box<dynamic> _box;
 
   static Future<HistoryLocalDatasourceImpl> open() async {
-    final box = await Hive.openBox<Map<String, dynamic>>(kHistoryBoxName);
+    final box = await Hive.openBox<dynamic>(kHistoryBoxName);
     return HistoryLocalDatasourceImpl(box);
   }
 
@@ -57,8 +57,11 @@ class HistoryLocalDatasourceImpl implements HistoryLocalDatasource {
         'visitedAt': entry.visitedAt.toIso8601String(),
       };
 
-  BrowsingHistoryEntry? _mapToEntry(Map<String, dynamic> raw) {
+  BrowsingHistoryEntry? _mapToEntry(dynamic rawValue) {
     try {
+      // Hive on Android returns LinkedHashMap<dynamic, dynamic> from storage.
+      // We cast each value individually for safety.
+      final raw = Map<String, dynamic>.from(rawValue as Map);
       return BrowsingHistoryEntry(
         url: raw['url'] as String,
         title: raw['title'] as String,

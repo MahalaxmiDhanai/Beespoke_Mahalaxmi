@@ -30,8 +30,8 @@ final likesBoxProvider = Provider<Box<int>>(
 );
 
 /// Provides the history box. Must be opened before [runApp].
-final historyBoxProvider = Provider<Box<Map<String, dynamic>>>(
-  (ref) => Hive.box<Map<String, dynamic>>('history_box'),
+final historyBoxProvider = Provider<Box<dynamic>>(
+  (ref) => Hive.box<dynamic>('history_box'),
 );
 
 // ─── Datasources ──────────────────────────────────────────────────────────────
@@ -46,7 +46,7 @@ final productLocalDatasourceProvider = Provider<ProductLocalDatasource>(
 
 final historyLocalDatasourceProvider = Provider<HistoryLocalDatasource>(
   (ref) => HistoryLocalDatasourceImpl(ref.watch(historyBoxProvider)),
-);
+); // ignore: avoid_dynamic_calls
 
 // ─── Repositories ─────────────────────────────────────────────────────────────
 

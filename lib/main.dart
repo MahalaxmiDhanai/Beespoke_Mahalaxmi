@@ -15,7 +15,7 @@ Future<void> main() async {
 
   await Hive.initFlutter();
   await Hive.openBox<int>('likes_box');
-  await Hive.openBox<Map<String, dynamic>>('history_box');
+  await Hive.openBox<dynamic>('history_box');
 
   runApp(const ProviderScope(child: BeespokeApp()));
 }
