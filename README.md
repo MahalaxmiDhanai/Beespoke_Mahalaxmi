@@ -173,15 +173,6 @@ The project utilizes GitHub Actions (`.github/workflows/ci.yml`) to ensure code 
 - [ ] **Enhanced Build Flavors:** Establish `dev`, `staging`, and `production` environments with distinct configurations.
 
 ---
-
-## 📬 Contact & Submission
-
-This project was developed and submitted for the **Beespoke AI — Flutter Developer Role (Round 2)**.
-
-For any inquiries or feedback, please contact:
-📧 [viswas@beespoke.ai](mailto:viswas@beespoke.ai)
-
----
 <div align="center">
   <i>Built with ❤️ using Flutter</i>
 </div>
