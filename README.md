@@ -88,6 +88,8 @@ lib/
 | **[Webview Flutter](https://pub.dev/packages/webview_flutter)** | In-App Browser | `^4.7.0` — Renders Google Shopping search results internally. |
 | **[Freezed](https://pub.dev/packages/freezed)** | Data Classes | `^2.4.1` — Generates immutable classes and unions. |
 
+> **💡 Note on WebView Implementation**: The `FakeStoreAPI` returns raw JSON data for its product endpoints rather than a user-facing HTML page. To provide a realistic and engaging "In-App Browser" experience when a user taps on a product, the application dynamically constructs and opens a **Google Shopping** search URL using the product's title instead.
+
 > **Note on Error Handling (`dartz`)**: Every repository method explicitly returns an `Either<Failure, T>`. This functional approach ensures that developers *must* handle both success (`Right`) and failure (`Left`) scenarios, eliminating silent runtime exceptions.
 
 ---
